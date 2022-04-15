@@ -28,3 +28,10 @@ We have a frontend built in Reactjs which has some basic forms for different typ
 
 ## What's next for SecureClaims
 We would like to extend ourselves to provide other services as well. We will work on creating our own dataset for faulty insurance claims in different sectors other than health. More research needs to be done in this sector and we will also provide data driven solutions . As time progresses we will make it more accessible by making a mobile application with the same functionality. 
+
+
+### Backend repo link
+https://github.com/pranavvdesai/SecureClaims-Backend
+
+## ML Repo link
+https://github.com/pranavvdesai/SecureClaims-ML
