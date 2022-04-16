@@ -51,6 +51,15 @@ function Sidebar() {
                                     Health
                                 </NavLink>
                             </li>
+                            <li className="rounded-lg mb-2">
+                                <NavLink
+                                    to="/cardview"
+                                    className="flex items-center gap-4 text-sm text-white font-light px-4 py-3 rounded-lg"
+                                    activeClassName="bg-gradient-to-tr from-purple-500 to-purple-700  text-white shadow-md"
+                                >
+                                    View Claims
+                                </NavLink>
+                            </li>
                         </ul>
                     </div>
                 </div>

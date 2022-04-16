@@ -7,6 +7,7 @@ import MotorForm from "./components/Form/Motor&Travel/MotorTravel";
 import FormTabs from "./components/FormTabs/FormTabs";
 import Payment from "./components/Payment/Payment";
 import Admin from "./components/Admin/Admin";
+import DataCard from "./components/Datacard/Datacard";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <Route exact path="/motorform" component={FormTabs} />
         <Route exact path="/payment" component={Payment} />
         <Route exact path="/admin" component={Admin} />
+        <Route exact path="/cardview" component={DataCard} />
       </div>
     </div>
   );

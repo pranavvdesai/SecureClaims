@@ -82,7 +82,7 @@ const AdminCards = ({ item }) => {
          <Card className=" card ">
 
             <CardBody className=" ">
-                    <h1 className="text-2xl font-bold mb-2">{item.amount} ETH</h1>
+                    <h1 className="text-2xl font-bold mb-2">{item.amount} SYNX</h1>
                     <p>To: {item.receiver}</p>
                     <p>From: {item.sender}</p>
             </CardBody>

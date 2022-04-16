@@ -26,7 +26,7 @@ const Dashboard = () => {
     <div>
       <div class="flex flex-col text-center">
         <h1 className='text-base mt-10 mb-2'>STAKED AMOUNT</h1>
-        <h1 className='text-5xl mb-10'>4 ETH</h1>
+        <h1 className='text-5xl mb-10'>4 SYNX</h1>
       </div>
       <div class="flex flex-col">
         <div class="-my-2 overflow-x-auto mx-10">
