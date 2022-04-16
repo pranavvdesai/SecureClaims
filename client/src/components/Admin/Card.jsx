@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import Card from "@material-tailwind/react/Card";
 import CardBody from "@material-tailwind/react/CardBody";
@@ -15,20 +15,20 @@ const AdminCards = ({ item }) => {
 
     const startPayment = async ({ setTxs, ether, to_addr }) => {
         try {
-          if (!window.ethereum)
-            throw new Error("No crypto wallet found. Please install it.");
-      
-          await window.ethereum.send("eth_requestAccounts");
-          const provider = new ethers.providers.Web3Provider(window.ethereum);
-          const signer = provider.getSigner();
-          ethers.utils.getAddress(to_addr);
-          const tx = await signer.sendTransaction({
-            to: item.sender,
-            value: ethers.utils.parseEther(ether)
-          });
-          const tx_from = tx.from;
-    
-          
+            if (!window.ethereum)
+                throw new Error("No crypto wallet found. Please install it.");
+
+            await window.ethereum.send("eth_requestAccounts");
+            const provider = new ethers.providers.Web3Provider(window.ethereum);
+            const signer = provider.getSigner();
+            ethers.utils.getAddress(to_addr);
+            const tx = await signer.sendTransaction({
+                to: item.sender,
+                value: ethers.utils.parseEther(ether)
+            });
+            const tx_from = tx.from;
+
+
             // await axios.post("http://localhost:8000/insurance", {
             //   amount: parseInt(ether),
             //   receiver: to_addr,
@@ -43,18 +43,18 @@ const AdminCards = ({ item }) => {
             // }).catch(err => {
             //   console.log(err);
             // })
-          
-          
-          
-          console.log({ ether, to_addr, tx_from });
-          console.log("tx", tx);
-          setTxs([tx]);
+
+
+
+            console.log({ ether, to_addr, tx_from });
+            console.log("tx", tx);
+            setTxs([tx]);
         } catch (err) {
-          console.log(err)
+            console.log(err)
         }
     };
-    
-    const accept = async() => {
+
+    const accept = async () => {
         await startPayment({
             setTxs,
             ether: amt.toString(),
@@ -68,7 +68,7 @@ const AdminCards = ({ item }) => {
             console.log(err);
         });
     }
-    const reject = async() => {
+    const reject = async () => {
         await axios.patch(`http://localhost:8000/insurance/${item._id}`, {
             status: "rejected"
         }).then(res => {
@@ -79,28 +79,28 @@ const AdminCards = ({ item }) => {
     }
     return (
         <div className=" px-4 mb-2">
-         <Card className=" card ">
+            <Card className=" card ">
 
             <CardBody className=" ">
-                    <h1 className="text-2xl font-bold mb-2">{item.amount} SYNX</h1>
+                    <h1 className="text-2xl font-bold mb-2">{item.amount} SNX</h1>
                     <p>To: {item.receiver}</p>
                     <p>From: {item.sender}</p>
-            </CardBody>
+                </CardBody>
 
                 <CardFooter>
-                    
-                        
-            <Button style={{
-        backgroundColor: "rgba(4, 120, 87, 1)",
-    }} variant="contained" className=" bg-green-700" onClick={accept}>Accept</Button>
-            <Button style={{
-                            backgroundColor: "red",
-                marginLeft: "10px",
-    }} variant="contained" className=" pl-8">Decline</Button>
-            
 
-            </CardFooter>
-        </Card>   
+
+                    <Button style={{
+                        backgroundColor: "rgba(4, 120, 87, 1)",
+                    }} variant="contained" className=" bg-green-700" onClick={accept}>Accept</Button>
+                    <Button style={{
+                        backgroundColor: "red",
+                        marginLeft: "10px",
+                    }} variant="contained" className=" pl-8">Decline</Button>
+
+
+                </CardFooter>
+            </Card>
         </div>
     )
 }

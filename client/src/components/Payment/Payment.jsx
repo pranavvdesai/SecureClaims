@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
@@ -9,49 +9,51 @@ import Transactions from '../../contracts/Transactions.json';
 import Web3 from "web3";
 import { ethers } from 'ethers';
 import axios from 'axios';
+import minter from './minter';
+import supply from './supply';
 function TabPanel(props) {
-    const { children, value, index, ...other } = props;
-  
-    return (
-      <div
-        role="tabpanel"
-        hidden={value !== index}
-        id={`simple-tabpanel-${index}`}
-        aria-labelledby={`simple-tab-${index}`}
-        {...other}
-      >
-        {value === index && (
-          <Box sx={{ p: 3 }}>
-            <Typography>{children}</Typography>
-          </Box>
-        )}
-      </div>
-    );
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box sx={{ p: 3 }}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
+    </div>
+  );
 }
 
 TabPanel.propTypes = {
-    children: PropTypes.node,
-    index: PropTypes.number.isRequired,
-    value: PropTypes.number.isRequired,
+  children: PropTypes.node,
+  index: PropTypes.number.isRequired,
+  value: PropTypes.number.isRequired,
+};
+
+function a11yProps(index) {
+  return {
+    id: `simple-tab-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
   };
-  
-  function a11yProps(index) {
-    return {
-      id: `simple-tab-${index}`,
-      'aria-controls': `simple-tabpanel-${index}`,
-    };
 }
-  
+
 const Payment = () => {
   let paystorage = localStorage.getItem('payableAmount')
-    const [amt, setAmt] = useState(paystorage)
+  const [amt, setAmt] = useState(paystorage)
   const [sender_balance, setSenderBalance] = useState('');
   const [sender_address, setSenderAddress] = useState();
-  const [receiver_address, setReceiverAddress] = useState("0x48776ffAf07Dd31b22074380559E0895fAc5Cb2c");
+  const [receiver_address, setReceiverAddress] = useState("0xdc8FcF01984778Cb39e4De728cC11f4728B134B7");
   const [transactions , setTransactions] = useState({});
   const [account, setAccount] = useState("");
-    const [value, setValue] = React.useState(0);
-    const [txs, setTxs] = useState([]);
+  const [value, setValue] = React.useState(0);
+  const [txs, setTxs] = useState([]);
   const [from_admin, setFromAdmin] = useState('');
   const ethervalue = [];
   
@@ -90,10 +92,11 @@ const Payment = () => {
         window.alert("Transactions contract not deployed to detected network.");
       }
     }
-    useEffect(() => {
-        loadBlockChain();
-    }, []);
   
+  useEffect(() => {
+    loadBlockChain();
+  }, []);
+
   // const stake = async () => {
   //   console.log(amt)
   //   // transactions.methods.send(receiver_address, amt).send({ from: account });
@@ -105,7 +108,7 @@ const Payment = () => {
     try {
       if (!window.ethereum)
         throw new Error("No crypto wallet found. Please install it.");
-  
+
       await window.ethereum.send("eth_requestAccounts");
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
@@ -124,8 +127,8 @@ const Payment = () => {
           amount: Number(ether),
           receiver: to_addr,
         sender: tx_from,
-        },
-          {
+      },
+        {
           headers: {
             'Content-Type': 'application/json'
           }
@@ -134,9 +137,9 @@ const Payment = () => {
         }).catch(err => {
           console.log(err);
         })
-      
-      
-      
+
+
+
       console.log({ ether, to_addr, tx_from });
       console.log("tx", tx);
       console.log("ethervalue", ethervalue);
@@ -155,12 +158,12 @@ const Payment = () => {
       to_addr: receiver_address
     });
   }
-  
+
   return (
       <div>
           <div className="flex flex-col text-center items-center">
               <h1 className='my-10 text-xl '>Choose your payment method</h1>
-              <p className='text-3xl font-bold mb-10'>Amount to be staked : {amt} eth</p>
+              <p className='text-3xl font-bold mb-10'>Amount to be staked : {amt} SNX</p>
           <Box >
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
@@ -189,6 +192,24 @@ const Payment = () => {
           className='bg-pur'
                         >
                             Pay
+        </Button>
+        <Button
+                            type="submit"
+                            variant="contained"
+          sx={{ mt: 3, mb: 2 }}
+          onClick={() => { minter(); }}
+          className='bg-pur'
+                        >
+                            Mint
+        </Button>
+        <Button
+                            type="submit"
+                            variant="contained"
+          sx={{ mt: 3, mb: 2 }}
+          onClick={() => { supply(); }}
+          className='bg-pur'
+                        >
+                            supply
                         </Button>
                         </div>
 

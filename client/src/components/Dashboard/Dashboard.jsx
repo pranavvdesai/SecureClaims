@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Tables from './Tables/Tables'
+import minter from "../Payment/minter"
 const Dashboard = () => {
   const [name, setName] = useState('John')
   const [title, setTitle] = useState('CEO')
@@ -26,7 +27,7 @@ const Dashboard = () => {
     <div>
       <div class="flex flex-col text-center">
         <h1 className='text-base mt-10 mb-2'>STAKED AMOUNT</h1>
-        <h1 className='text-5xl mb-10'>4 SYNX</h1>
+        <h1 className='text-5xl mb-10'>12 SNX</h1>
       </div>
       <div class="flex flex-col">
         <div class="-my-2 overflow-x-auto mx-10">
@@ -39,6 +40,7 @@ const Dashboard = () => {
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Date of Applying</th>
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Status</th>
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Amount</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Mine sUSD</th>
                   </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
@@ -53,7 +55,8 @@ const Dashboard = () => {
                   {data.map((item) => (
                     <Tables item={item} />
                   ))}
-                            </tbody>
+                  
+                </tbody>
               </table>
             </div>
           </div>
