@@ -1,0 +1,1609 @@
+{
+  "contractName": "Stake",
+  "abi": [
+    {
+      "inputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "synthetixResolver",
+      "outputs": [
+        {
+          "internalType": "contract IAddressResolver",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "synthetixIssue",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        }
+      ],
+      "name": "synthetixIssueOnBehalf",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"constant\":false,\"inputs\":[],\"name\":\"synthetixIssue\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"}],\"name\":\"synthetixIssueOnBehalf\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"synthetixResolver\",\"outputs\":[{\"internalType\":\"contract IAddressResolver\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Stake.sol\":\"Stake\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Interfaces/IAddressResolver.sol\":{\"keccak256\":\"0x8b73e0fa8b769c15ffd352a1796e65474bb32bc3eabcb54dcd43707b0c6e302c\",\"urls\":[\"bzz-raw://846d853295b1e3dc8e8aedd768f5b08f90f9256a9136bd7ee2884dde97bf5034\",\"dweb:/ipfs/QmSUfGH6gQXZgDdk4yJMBBV4aL2HCMcDkayxG1zNyecb9j\"]},\"project:/contracts/Interfaces/ISynth.sol\":{\"keccak256\":\"0xc0369ca035bfa726dbff26aa45a6945406fc6ad223faf6b9d57c3318abc7bbea\",\"urls\":[\"bzz-raw://e3c0c0b1daea7d54cf1b1a711d353ad939ee1ccc370497cf263aafa1b876f270\",\"dweb:/ipfs/QmWHGz6tv1QAT2DSUwyBtpGJk6aH1Bd5VjXdBuToV3qDyP\"]},\"project:/contracts/Interfaces/ISynthetix.sol\":{\"keccak256\":\"0x3a17226293a3d3b7ec042731e15778f856ec8c576cb94ab5b97d25ae99606815\",\"urls\":[\"bzz-raw://fe46acb1d3534f1c9c09d6e07c9edf7a17d101987487ccd5a9c41c85d48f8b27\",\"dweb:/ipfs/QmS5sYcKCW8CnycWeRP42LeSoXEsoJDqKoJNbfFGDEvroz\"]},\"project:/contracts/Interfaces/IVirtualSynth.sol\":{\"keccak256\":\"0x37a4928a13ff9ed2db1753659a384e7531fe80b7c07c0038d912ecb1188fb7e0\",\"urls\":[\"bzz-raw://6d78bb8a29e83a18432b70c48b762e0e750046129f242f02e3757816a7a86023\",\"dweb:/ipfs/Qmeu7SHSVF3gEx3GKg7hivRmth1cHyXrnkfu5DtKVCY13J\"]},\"project:/contracts/Stake.sol\":{\"keccak256\":\"0x33225cb35b423cfe729471a6e7c6ba60f76a377b8c8db0601aae50be40ba4275\",\"urls\":[\"bzz-raw://45708e506e281a5742b86ca7368b45abff7c10393813d2212039d77f174a2193\",\"dweb:/ipfs/QmQuTPHmTHW8eDiqXzPWxdgYdMXo2yPRctZhxhzXw941vm\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5073567357d7803161c1ed782e9395735621b7954dde6000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506103d8806100746000396000f3fe608060405234801561001057600080fd5b50600436106100415760003560e01c8063153cd7161461004657806341693bb414610090578063cf5d06271461009a575b600080fd5b61004e6100de565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b610098610103565b005b6100dc600480360360208110156100b057600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610237565b005b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166321f8a7216040518163ffffffff1660e01b815260040180807f53796e7468657469780000000000000000000000000000000000000000000000815250602001905060206040518083038186803b15801561019757600080fd5b505afa1580156101ab573d6000803e3d6000fd5b505050506040513d60208110156101c157600080fd5b810190808051906020019092919050505090508073ffffffffffffffffffffffffffffffffffffffff1663af086c7e6040518163ffffffff1660e01b8152600401600060405180830381600087803b15801561021c57600080fd5b505af1158015610230573d6000803e3d6000fd5b5050505050565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166321f8a7216040518163ffffffff1660e01b815260040180807f53796e7468657469780000000000000000000000000000000000000000000000815250602001905060206040518083038186803b1580156102cb57600080fd5b505afa1580156102df573d6000803e3d6000fd5b505050506040513d60208110156102f557600080fd5b810190808051906020019092919050505090508073ffffffffffffffffffffffffffffffffffffffff1663320223db836040518263ffffffff1660e01b8152600401808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050600060405180830381600087803b15801561038757600080fd5b505af115801561039b573d6000803e3d6000fd5b50505050505056fea265627a7a72315820effb7d1f7da013fd09014c21b269f279ec8f3c011dbcd3d17007cbfac84eec2964736f6c63430005100032",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100415760003560e01c8063153cd7161461004657806341693bb414610090578063cf5d06271461009a575b600080fd5b61004e6100de565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b610098610103565b005b6100dc600480360360208110156100b057600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610237565b005b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166321f8a7216040518163ffffffff1660e01b815260040180807f53796e7468657469780000000000000000000000000000000000000000000000815250602001905060206040518083038186803b15801561019757600080fd5b505afa1580156101ab573d6000803e3d6000fd5b505050506040513d60208110156101c157600080fd5b810190808051906020019092919050505090508073ffffffffffffffffffffffffffffffffffffffff1663af086c7e6040518163ffffffff1660e01b8152600401600060405180830381600087803b15801561021c57600080fd5b505af1158015610230573d6000803e3d6000fd5b5050505050565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166321f8a7216040518163ffffffff1660e01b815260040180807f53796e7468657469780000000000000000000000000000000000000000000000815250602001905060206040518083038186803b1580156102cb57600080fd5b505afa1580156102df573d6000803e3d6000fd5b505050506040513d60208110156102f557600080fd5b810190808051906020019092919050505090508073ffffffffffffffffffffffffffffffffffffffff1663320223db836040518263ffffffff1660e01b8152600401808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050600060405180830381600087803b15801561038757600080fd5b505af115801561039b573d6000803e3d6000fd5b50505050505056fea265627a7a72315820effb7d1f7da013fd09014c21b269f279ec8f3c011dbcd3d17007cbfac84eec2964736f6c63430005100032",
+  "sourceMap": "123:649:7:-;;;195:144;8:9:-1;5:2;;;30:1;27;20:12;5:2;195:144:7;278:42;227:17;;:104;;;;;;;;;;;;;;;;;;123:649;;;;;;",
+  "deployedSourceMap": "123:649:7:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;123:649:7;;;;;;;;;;;;;;;;;;;;;;;;;;;;;145:41;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;347:191;;;:::i;:::-;;546:223;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;546:223:7;;;;;;;;;;;;;;;;;;;:::i;:::-;;145:41;;;;;;;;;;;;;:::o;347:191::-;393:20;441:17;;;;;;;;;;;:28;;;:41;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;441:41:7;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;441:41:7;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;441:41:7;;;;;;;;;;;;;;;;393:100;;504:9;:24;;;:26;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;504:26:7;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;504:26:7;;;;347:191;:::o;546:223::-;612:20;660:17;;;;;;;;;;;:28;;;:41;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;660:41:7;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;660:41:7;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;660:41:7;;;;;;;;;;;;;;;;612:100;;723:9;:32;;;756:4;723:38;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;723:38:7;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;723:38:7;;;;546:223;;:::o",
+  "source": "pragma solidity >=0.4.21 <8.10.0;\r\n\r\nimport \"./Interfaces/IAddressResolver.sol\";\r\nimport \"./Interfaces/ISynthetix.sol\";\r\n\r\ncontract Stake {\r\n    IAddressResolver public synthetixResolver;\r\n\r\n    constructor() public {\r\n        synthetixResolver = IAddressResolver(\r\n            0x567357D7803161C1eD782e9395735621B7954dDE\r\n        );\r\n    }\r\n\r\n    function synthetixIssue() external {\r\n        ISynthetix synthetix = ISynthetix(\r\n            synthetixResolver.getAddress(\"Synthetix\")\r\n        );\r\n        synthetix.issueMaxSynths();\r\n    }\r\n\r\n    function synthetixIssueOnBehalf(address user) external {\r\n        ISynthetix synthetix = ISynthetix(\r\n            synthetixResolver.getAddress(\"Synthetix\")\r\n        );\r\n        synthetix.issueMaxSynthsOnBehalf(user);\r\n    }\r\n}\r\n",
+  "sourcePath": "C:\\Users\\prana\\OneDrive\\Desktop\\SecureClaims\\contracts\\Stake.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/Stake.sol",
+    "exportedSymbols": {
+      "Stake": [
+        548
+      ]
+    },
+    "id": 549,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 494,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".21",
+          "<",
+          "8.10",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:33:7"
+      },
+      {
+        "absolutePath": "project:/contracts/Interfaces/IAddressResolver.sol",
+        "file": "./Interfaces/IAddressResolver.sol",
+        "id": 495,
+        "nodeType": "ImportDirective",
+        "scope": 549,
+        "sourceUnit": 27,
+        "src": "37:43:7",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "project:/contracts/Interfaces/ISynthetix.sol",
+        "file": "./Interfaces/ISynthetix.sol",
+        "id": 496,
+        "nodeType": "ImportDirective",
+        "scope": 549,
+        "sourceUnit": 372,
+        "src": "82:37:7",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 548,
+        "linearizedBaseContracts": [
+          548
+        ],
+        "name": "Stake",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 498,
+            "name": "synthetixResolver",
+            "nodeType": "VariableDeclaration",
+            "scope": 548,
+            "src": "145:41:7",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_IAddressResolver_$26",
+              "typeString": "contract IAddressResolver"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 497,
+              "name": "IAddressResolver",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 26,
+              "src": "145:16:7",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_IAddressResolver_$26",
+                "typeString": "contract IAddressResolver"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 507,
+              "nodeType": "Block",
+              "src": "216:123:7",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 505,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 501,
+                      "name": "synthetixResolver",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 498,
+                      "src": "227:17:7",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IAddressResolver_$26",
+                        "typeString": "contract IAddressResolver"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "hexValue": "307835363733353744373830333136314331654437383265393339353733353632314237393534644445",
+                          "id": 503,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "number",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "278:42:7",
+                          "subdenomination": null,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address_payable",
+                            "typeString": "address payable"
+                          },
+                          "value": "0x567357D7803161C1eD782e9395735621B7954dDE"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address_payable",
+                            "typeString": "address payable"
+                          }
+                        ],
+                        "id": 502,
+                        "name": "IAddressResolver",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 26,
+                        "src": "247:16:7",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_IAddressResolver_$26_$",
+                          "typeString": "type(contract IAddressResolver)"
+                        }
+                      },
+                      "id": 504,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "247:84:7",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IAddressResolver_$26",
+                        "typeString": "contract IAddressResolver"
+                      }
+                    },
+                    "src": "227:104:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IAddressResolver_$26",
+                      "typeString": "contract IAddressResolver"
+                    }
+                  },
+                  "id": 506,
+                  "nodeType": "ExpressionStatement",
+                  "src": "227:104:7"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 508,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 499,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "206:2:7"
+            },
+            "returnParameters": {
+              "id": 500,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "216:0:7"
+            },
+            "scope": 548,
+            "src": "195:144:7",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 525,
+              "nodeType": "Block",
+              "src": "382:156:7",
+              "statements": [
+                {
+                  "assignments": [
+                    512
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 512,
+                      "name": "synthetix",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 525,
+                      "src": "393:20:7",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_ISynthetix_$371",
+                        "typeString": "contract ISynthetix"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 511,
+                        "name": "ISynthetix",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 371,
+                        "src": "393:10:7",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_ISynthetix_$371",
+                          "typeString": "contract ISynthetix"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 519,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "hexValue": "53796e746865746978",
+                            "id": 516,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "string",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "470:11:7",
+                            "subdenomination": null,
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_stringliteral_a950cd1ddbf06f039d5bf1adb6bf22a15cde8ec1af40d0382b9fd639b5977d80",
+                              "typeString": "literal_string \"Synthetix\""
+                            },
+                            "value": "Synthetix"
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_stringliteral_a950cd1ddbf06f039d5bf1adb6bf22a15cde8ec1af40d0382b9fd639b5977d80",
+                              "typeString": "literal_string \"Synthetix\""
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 514,
+                            "name": "synthetixResolver",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 498,
+                            "src": "441:17:7",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_contract$_IAddressResolver_$26",
+                              "typeString": "contract IAddressResolver"
+                            }
+                          },
+                          "id": 515,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "getAddress",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 9,
+                          "src": "441:28:7",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_external_view$_t_bytes32_$returns$_t_address_$",
+                            "typeString": "function (bytes32) view external returns (address)"
+                          }
+                        },
+                        "id": 517,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "441:41:7",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 513,
+                      "name": "ISynthetix",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 371,
+                      "src": "416:10:7",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_contract$_ISynthetix_$371_$",
+                        "typeString": "type(contract ISynthetix)"
+                      }
+                    },
+                    "id": 518,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "typeConversion",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "416:77:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ISynthetix_$371",
+                      "typeString": "contract ISynthetix"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "393:100:7"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [],
+                    "expression": {
+                      "argumentTypes": [],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 520,
+                        "name": "synthetix",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 512,
+                        "src": "504:9:7",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_ISynthetix_$371",
+                          "typeString": "contract ISynthetix"
+                        }
+                      },
+                      "id": 522,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "issueMaxSynths",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 309,
+                      "src": "504:24:7",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_nonpayable$__$returns$__$",
+                        "typeString": "function () external"
+                      }
+                    },
+                    "id": 523,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "504:26:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 524,
+                  "nodeType": "ExpressionStatement",
+                  "src": "504:26:7"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 526,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "synthetixIssue",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 509,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "370:2:7"
+            },
+            "returnParameters": {
+              "id": 510,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "382:0:7"
+            },
+            "scope": 548,
+            "src": "347:191:7",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 546,
+              "nodeType": "Block",
+              "src": "601:168:7",
+              "statements": [
+                {
+                  "assignments": [
+                    532
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 532,
+                      "name": "synthetix",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 546,
+                      "src": "612:20:7",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_ISynthetix_$371",
+                        "typeString": "contract ISynthetix"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 531,
+                        "name": "ISynthetix",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 371,
+                        "src": "612:10:7",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_ISynthetix_$371",
+                          "typeString": "contract ISynthetix"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 539,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "hexValue": "53796e746865746978",
+                            "id": 536,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "string",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "689:11:7",
+                            "subdenomination": null,
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_stringliteral_a950cd1ddbf06f039d5bf1adb6bf22a15cde8ec1af40d0382b9fd639b5977d80",
+                              "typeString": "literal_string \"Synthetix\""
+                            },
+                            "value": "Synthetix"
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_stringliteral_a950cd1ddbf06f039d5bf1adb6bf22a15cde8ec1af40d0382b9fd639b5977d80",
+                              "typeString": "literal_string \"Synthetix\""
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 534,
+                            "name": "synthetixResolver",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 498,
+                            "src": "660:17:7",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_contract$_IAddressResolver_$26",
+                              "typeString": "contract IAddressResolver"
+                            }
+                          },
+                          "id": 535,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "getAddress",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 9,
+                          "src": "660:28:7",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_external_view$_t_bytes32_$returns$_t_address_$",
+                            "typeString": "function (bytes32) view external returns (address)"
+                          }
+                        },
+                        "id": 537,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "660:41:7",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 533,
+                      "name": "ISynthetix",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 371,
+                      "src": "635:10:7",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_contract$_ISynthetix_$371_$",
+                        "typeString": "type(contract ISynthetix)"
+                      }
+                    },
+                    "id": 538,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "typeConversion",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "635:77:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ISynthetix_$371",
+                      "typeString": "contract ISynthetix"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "612:100:7"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 543,
+                        "name": "user",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 528,
+                        "src": "756:4:7",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 540,
+                        "name": "synthetix",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 532,
+                        "src": "723:9:7",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_ISynthetix_$371",
+                          "typeString": "contract ISynthetix"
+                        }
+                      },
+                      "id": 542,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "issueMaxSynthsOnBehalf",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 314,
+                      "src": "723:32:7",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_nonpayable$_t_address_$returns$__$",
+                        "typeString": "function (address) external"
+                      }
+                    },
+                    "id": 544,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "723:38:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 545,
+                  "nodeType": "ExpressionStatement",
+                  "src": "723:38:7"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 547,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "synthetixIssueOnBehalf",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 529,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 528,
+                  "name": "user",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 547,
+                  "src": "578:12:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 527,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "578:7:7",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "577:14:7"
+            },
+            "returnParameters": {
+              "id": 530,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "601:0:7"
+            },
+            "scope": 548,
+            "src": "546:223:7",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 549,
+        "src": "123:649:7"
+      }
+    ],
+    "src": "0:774:7"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "project:/contracts/Stake.sol",
+      "exportedSymbols": {
+        "Stake": [
+          548
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            ">=",
+            "0.4",
+            ".21",
+            "<",
+            "8.10",
+            ".0"
+          ]
+        },
+        "id": 494,
+        "name": "PragmaDirective",
+        "src": "0:33:7"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 27,
+          "absolutePath": "project:/contracts/Interfaces/IAddressResolver.sol",
+          "file": "./Interfaces/IAddressResolver.sol",
+          "scope": 549,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 495,
+        "name": "ImportDirective",
+        "src": "37:43:7"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 372,
+          "absolutePath": "project:/contracts/Interfaces/ISynthetix.sol",
+          "file": "./Interfaces/ISynthetix.sol",
+          "scope": 549,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 496,
+        "name": "ImportDirective",
+        "src": "82:37:7"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            548
+          ],
+          "name": "Stake",
+          "scope": 549
+        },
+        "children": [
+          {
+            "attributes": {
+              "constant": false,
+              "name": "synthetixResolver",
+              "scope": 548,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "contract IAddressResolver",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "IAddressResolver",
+                  "referencedDeclaration": 26,
+                  "type": "contract IAddressResolver"
+                },
+                "id": 497,
+                "name": "UserDefinedTypeName",
+                "src": "145:16:7"
+              }
+            ],
+            "id": 498,
+            "name": "VariableDeclaration",
+            "src": "145:41:7"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": true,
+              "kind": "constructor",
+              "modifiers": [
+                null
+              ],
+              "name": "",
+              "scope": 548,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 499,
+                "name": "ParameterList",
+                "src": "206:2:7"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 500,
+                "name": "ParameterList",
+                "src": "216:0:7"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "contract IAddressResolver"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 498,
+                              "type": "contract IAddressResolver",
+                              "value": "synthetixResolver"
+                            },
+                            "id": 501,
+                            "name": "Identifier",
+                            "src": "227:17:7"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "isStructConstructorCall": false,
+                              "lValueRequested": false,
+                              "names": [
+                                null
+                              ],
+                              "type": "contract IAddressResolver",
+                              "type_conversion": true
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_address_payable",
+                                      "typeString": "address payable"
+                                    }
+                                  ],
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 26,
+                                  "type": "type(contract IAddressResolver)",
+                                  "value": "IAddressResolver"
+                                },
+                                "id": 502,
+                                "name": "Identifier",
+                                "src": "247:16:7"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "hexvalue": "307835363733353744373830333136314331654437383265393339353733353632314237393534644445",
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "subdenomination": null,
+                                  "token": "number",
+                                  "type": "address payable",
+                                  "value": "0x567357D7803161C1eD782e9395735621B7954dDE"
+                                },
+                                "id": 503,
+                                "name": "Literal",
+                                "src": "278:42:7"
+                              }
+                            ],
+                            "id": 504,
+                            "name": "FunctionCall",
+                            "src": "247:84:7"
+                          }
+                        ],
+                        "id": 505,
+                        "name": "Assignment",
+                        "src": "227:104:7"
+                      }
+                    ],
+                    "id": 506,
+                    "name": "ExpressionStatement",
+                    "src": "227:104:7"
+                  }
+                ],
+                "id": 507,
+                "name": "Block",
+                "src": "216:123:7"
+              }
+            ],
+            "id": 508,
+            "name": "FunctionDefinition",
+            "src": "195:144:7"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "synthetixIssue",
+              "scope": 548,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 509,
+                "name": "ParameterList",
+                "src": "370:2:7"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 510,
+                "name": "ParameterList",
+                "src": "382:0:7"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "assignments": [
+                        512
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "name": "synthetix",
+                          "scope": 525,
+                          "stateVariable": false,
+                          "storageLocation": "default",
+                          "type": "contract ISynthetix",
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "contractScope": null,
+                              "name": "ISynthetix",
+                              "referencedDeclaration": 371,
+                              "type": "contract ISynthetix"
+                            },
+                            "id": 511,
+                            "name": "UserDefinedTypeName",
+                            "src": "393:10:7"
+                          }
+                        ],
+                        "id": 512,
+                        "name": "VariableDeclaration",
+                        "src": "393:20:7"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "contract ISynthetix",
+                          "type_conversion": true
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 371,
+                              "type": "type(contract ISynthetix)",
+                              "value": "ISynthetix"
+                            },
+                            "id": 513,
+                            "name": "Identifier",
+                            "src": "416:10:7"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "isStructConstructorCall": false,
+                              "lValueRequested": false,
+                              "names": [
+                                null
+                              ],
+                              "type": "address",
+                              "type_conversion": false
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_stringliteral_a950cd1ddbf06f039d5bf1adb6bf22a15cde8ec1af40d0382b9fd639b5977d80",
+                                      "typeString": "literal_string \"Synthetix\""
+                                    }
+                                  ],
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "getAddress",
+                                  "referencedDeclaration": 9,
+                                  "type": "function (bytes32) view external returns (address)"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 498,
+                                      "type": "contract IAddressResolver",
+                                      "value": "synthetixResolver"
+                                    },
+                                    "id": 514,
+                                    "name": "Identifier",
+                                    "src": "441:17:7"
+                                  }
+                                ],
+                                "id": 515,
+                                "name": "MemberAccess",
+                                "src": "441:28:7"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "hexvalue": "53796e746865746978",
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "subdenomination": null,
+                                  "token": "string",
+                                  "type": "literal_string \"Synthetix\"",
+                                  "value": "Synthetix"
+                                },
+                                "id": 516,
+                                "name": "Literal",
+                                "src": "470:11:7"
+                              }
+                            ],
+                            "id": 517,
+                            "name": "FunctionCall",
+                            "src": "441:41:7"
+                          }
+                        ],
+                        "id": 518,
+                        "name": "FunctionCall",
+                        "src": "416:77:7"
+                      }
+                    ],
+                    "id": 519,
+                    "name": "VariableDeclarationStatement",
+                    "src": "393:100:7"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "arguments": [
+                            null
+                          ],
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                null
+                              ],
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "issueMaxSynths",
+                              "referencedDeclaration": 309,
+                              "type": "function () external"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 512,
+                                  "type": "contract ISynthetix",
+                                  "value": "synthetix"
+                                },
+                                "id": 520,
+                                "name": "Identifier",
+                                "src": "504:9:7"
+                              }
+                            ],
+                            "id": 522,
+                            "name": "MemberAccess",
+                            "src": "504:24:7"
+                          }
+                        ],
+                        "id": 523,
+                        "name": "FunctionCall",
+                        "src": "504:26:7"
+                      }
+                    ],
+                    "id": 524,
+                    "name": "ExpressionStatement",
+                    "src": "504:26:7"
+                  }
+                ],
+                "id": 525,
+                "name": "Block",
+                "src": "382:156:7"
+              }
+            ],
+            "id": 526,
+            "name": "FunctionDefinition",
+            "src": "347:191:7"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "synthetixIssueOnBehalf",
+              "scope": 548,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "user",
+                      "scope": 547,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 527,
+                        "name": "ElementaryTypeName",
+                        "src": "578:7:7"
+                      }
+                    ],
+                    "id": 528,
+                    "name": "VariableDeclaration",
+                    "src": "578:12:7"
+                  }
+                ],
+                "id": 529,
+                "name": "ParameterList",
+                "src": "577:14:7"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 530,
+                "name": "ParameterList",
+                "src": "601:0:7"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "assignments": [
+                        532
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "name": "synthetix",
+                          "scope": 546,
+                          "stateVariable": false,
+                          "storageLocation": "default",
+                          "type": "contract ISynthetix",
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "contractScope": null,
+                              "name": "ISynthetix",
+                              "referencedDeclaration": 371,
+                              "type": "contract ISynthetix"
+                            },
+                            "id": 531,
+                            "name": "UserDefinedTypeName",
+                            "src": "612:10:7"
+                          }
+                        ],
+                        "id": 532,
+                        "name": "VariableDeclaration",
+                        "src": "612:20:7"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "contract ISynthetix",
+                          "type_conversion": true
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 371,
+                              "type": "type(contract ISynthetix)",
+                              "value": "ISynthetix"
+                            },
+                            "id": 533,
+                            "name": "Identifier",
+                            "src": "635:10:7"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "isStructConstructorCall": false,
+                              "lValueRequested": false,
+                              "names": [
+                                null
+                              ],
+                              "type": "address",
+                              "type_conversion": false
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_stringliteral_a950cd1ddbf06f039d5bf1adb6bf22a15cde8ec1af40d0382b9fd639b5977d80",
+                                      "typeString": "literal_string \"Synthetix\""
+                                    }
+                                  ],
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "getAddress",
+                                  "referencedDeclaration": 9,
+                                  "type": "function (bytes32) view external returns (address)"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 498,
+                                      "type": "contract IAddressResolver",
+                                      "value": "synthetixResolver"
+                                    },
+                                    "id": 534,
+                                    "name": "Identifier",
+                                    "src": "660:17:7"
+                                  }
+                                ],
+                                "id": 535,
+                                "name": "MemberAccess",
+                                "src": "660:28:7"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "hexvalue": "53796e746865746978",
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "subdenomination": null,
+                                  "token": "string",
+                                  "type": "literal_string \"Synthetix\"",
+                                  "value": "Synthetix"
+                                },
+                                "id": 536,
+                                "name": "Literal",
+                                "src": "689:11:7"
+                              }
+                            ],
+                            "id": 537,
+                            "name": "FunctionCall",
+                            "src": "660:41:7"
+                          }
+                        ],
+                        "id": 538,
+                        "name": "FunctionCall",
+                        "src": "635:77:7"
+                      }
+                    ],
+                    "id": 539,
+                    "name": "VariableDeclarationStatement",
+                    "src": "612:100:7"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                }
+                              ],
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "issueMaxSynthsOnBehalf",
+                              "referencedDeclaration": 314,
+                              "type": "function (address) external"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 532,
+                                  "type": "contract ISynthetix",
+                                  "value": "synthetix"
+                                },
+                                "id": 540,
+                                "name": "Identifier",
+                                "src": "723:9:7"
+                              }
+                            ],
+                            "id": 542,
+                            "name": "MemberAccess",
+                            "src": "723:32:7"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 528,
+                              "type": "address",
+                              "value": "user"
+                            },
+                            "id": 543,
+                            "name": "Identifier",
+                            "src": "756:4:7"
+                          }
+                        ],
+                        "id": 544,
+                        "name": "FunctionCall",
+                        "src": "723:38:7"
+                      }
+                    ],
+                    "id": 545,
+                    "name": "ExpressionStatement",
+                    "src": "723:38:7"
+                  }
+                ],
+                "id": 546,
+                "name": "Block",
+                "src": "601:168:7"
+              }
+            ],
+            "id": 547,
+            "name": "FunctionDefinition",
+            "src": "546:223:7"
+          }
+        ],
+        "id": 548,
+        "name": "ContractDefinition",
+        "src": "123:649:7"
+      }
+    ],
+    "id": 549,
+    "name": "SourceUnit",
+    "src": "0:774:7"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.5",
+  "updatedAt": "2022-04-16T11:46:59.152Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}
